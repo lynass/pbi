@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.66\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":{\"visual\":\"1.8.95\",\"report\":\"2.0.95\",\"page\":\"1.3.95\"},\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "21302b3f86c839426cd0",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"2481e1983aed2cd1e8ec\",\"layouts\":[{\"id\":0,\"position\":{\"x\":649.8159509202454,\"y\":4.580777096114519,\"z\":1,\"width\":630.1840490797546,\"height\":350.1022494887526,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Sheet1.Country\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Sheet1.Discounts)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Sheet1\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Country\"},\"Name\":\"Sheet1.Country\",\"NativeReferenceName\":\"Country\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Discounts\"}},\"Function\":0},\"Name\":\"Sum(Sheet1.Discounts)\",\"NativeReferenceName\":\"Sum of Discounts\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Discounts\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 350.10,
+          "width": 630.18,
+          "x": 649.82,
+          "y": 4.58,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"792bea7877b6e043eb81\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.815950920245399,\"y\":0,\"z\":0,\"width\":630.1840490797546,\"height\":359.91820040899796,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Sheet1.Country\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Sheet1.Gross Sales)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Sheet1\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Country\"},\"Name\":\"Sheet1.Country\",\"NativeReferenceName\":\"Country\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Gross Sales\"}},\"Function\":0},\"Name\":\"Sum(Sheet1.Gross Sales)\",\"NativeReferenceName\":\"Sum of Gross Sales\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Gross Sales\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 359.92,
+          "width": 630.18,
+          "x": 9.82,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

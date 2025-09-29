@@ -1,0 +1,168 @@
+table Sheet1
+	lineageTag: 7c0ae249-a4b0-4aa3-a53e-d56d929a25cd
+
+	column Segment
+		dataType: string
+		lineageTag: 417fe5b3-a9ca-4ab1-9515-5eaed1d3bffe
+		summarizeBy: none
+		sourceColumn: Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 6a049153-1f77-490d-b71f-1dbb5faac69a
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product
+		dataType: string
+		lineageTag: a94e29e3-b56c-4e86-bed5-41eb30eb2103
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Discount Band'
+		dataType: string
+		lineageTag: 71ef6993-a4f1-40d5-a1eb-26082c35f86d
+		summarizeBy: none
+		sourceColumn: Discount Band
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Units Sold'
+		dataType: double
+		lineageTag: 77f7ee5a-880f-46b5-a60a-a9f48a05e9cb
+		summarizeBy: sum
+		sourceColumn: Units Sold
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Manufacturing Price'
+		dataType: int64
+		formatString: 0
+		lineageTag: 26cc7d4c-d8de-4bc6-ae4f-695b5a736ce4
+		summarizeBy: sum
+		sourceColumn: Manufacturing Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sale Price'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b3ca4e2-e379-4684-82f1-bdfaf982cac9
+		summarizeBy: sum
+		sourceColumn: Sale Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gross Sales'
+		dataType: double
+		lineageTag: 1a57c8dd-8c94-4174-a77b-84dfc76ca759
+		summarizeBy: sum
+		sourceColumn: Gross Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Discounts
+		dataType: double
+		lineageTag: 03f30db0-6415-432b-a4ed-d9e6de081d75
+		summarizeBy: sum
+		sourceColumn: Discounts
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Sales
+		dataType: double
+		lineageTag: 688005a9-6223-4b31-8a50-52f46ee42e95
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COGS
+		dataType: double
+		lineageTag: 55b31560-6508-4c21-8494-871d7c0283e4
+		summarizeBy: sum
+		sourceColumn: COGS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Profit
+		dataType: double
+		lineageTag: 77c8c5ff-cfc4-4897-9f26-5d6eb6e7294e
+		summarizeBy: sum
+		sourceColumn: Profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5ee1852a-0b2b-4740-888c-7f2ac0c69145
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 9cf957ef-9028-42c7-a32a-0c49359bc8f3
+			defaultHierarchy: LocalDateTable_76a343a2-b3d7-4ada-a340-547c2a0b91f0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Month Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b576e79-4af5-491d-9368-57e71a2e9047
+		summarizeBy: sum
+		sourceColumn: Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 015a5a14-1856-4847-a514-05bae195e4fc
+		summarizeBy: none
+		sourceColumn: Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b163d79-41dd-4857-9eb3-007a912d8160
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sheet1 = m
+		mode: import
+		source =
+				let
+				 Source = Excel.Workbook(File.Contents("C:\Program Files\Microsoft Power BI Desktop\bin\SampleData\Financial Sample.xlsx"), null, true),
+				    Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Segment", type text}, {"Country", type text}, {"Product", type text}, {"Discount Band", type text}, {"Units Sold", type number}, {"Manufacturing Price", Int64.Type}, {"Sale Price", Int64.Type}, {"Gross Sales", type number}, {"Discounts", type number}, {"Sales", type number}, {"COGS", type number}, {"Profit", type number}, {"Date", type date}, {"Month Number", Int64.Type}, {"Month Name", type text}, {"Year", Int64.Type}})
+				in
+				 #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
